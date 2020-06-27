@@ -1,6 +1,6 @@
 {
   "name": "focus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -9,18 +9,13 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "clsx": "^1.1.1",
-    "fontsource-kranky": "^2.1.2",
-    "fontsource-poiret-one": "^2.1.2",
     "moment": "^2.26.0",
-    "pizzicato": "^0.6.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-howler": "^3.7.4",
     "react-scripts": "3.4.1",
-    "react-sound": "^1.2.0",
     "tone": "^13.8.25",
-    "typeface-kranky": "0.0.71",
-    "use-sound": "^1.0.2"
+    "typeface-kranky": "0.0.71"
   },
   "scripts": {
     "start": "react-scripts start",

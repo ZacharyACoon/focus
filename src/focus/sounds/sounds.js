@@ -15,21 +15,3 @@ export const pauseSound = new Tone.Player({
     autostart: false,
     volume: 0.5,
 }).toMaster();
-
-
-// export const alarmSound = new pizzicato.Sound({
-//     source: "file",
-//     options: {
-//         path: gentleAlarm,
-//         volume: 0.5,
-//     }
-// })
-
-
-// export const pauseSound = new pizzicato.Sound({
-//     source: "file",
-//     options: {
-//         path: holdYourHorses,
-//         volume: 0.5,
-//     }
-// })
