@@ -46,34 +46,30 @@ const style = {
         height: "100vh",
         width: "100vw",
     },
-    settings: {
+    inputs: {
+        zIndex: 2,
         display: "flex",
         justifyContent: "center",
+        padding: "0.5em",
+        "& > * + *": { marginLeft: "0.5em", },
+        "& > *": { marginRight: "0.5em", },
         alignItems: "center",
-        fontSize: 18,
-        "& > .inputs": {
-            zIndex: 2,
-            display: "flex",
-            justifyContent: "center",
+        "& .up::after": {
+            content: `"v"`,
+            display: "block",
+            transform: "rotate(180deg)",
+            userSelect: "none",
+            fontSize: 18,
             padding: "0.5em",
-            "& > * + *": { marginLeft: "1em", },
-            "& .up::after": {
-                content: `"v"`,
-                display: "block",
-                transform: "rotate(180deg)",
-                userSelect: "none",
-                fontSize: 18,
-                padding: "0.5em",
-            },
-            "& .down::after": {
-                content: `"v"`,
-                display: "block",
-                userSelect: "none",
-                fontSize: 18,
-                padding: "0.5em",
-            }
+        },
+        "& .down::after": {
+            content: `"v"`,
+            display: "block",
+            userSelect: "none",
+            fontSize: 18,
+            padding: "0.5em",
         }
-    },
+    }
 }
 
 
@@ -108,23 +104,24 @@ class Focus extends React.Component {
                 {this.state.paused
                     ?
                     <React.Fragment>
-                        <Description/>
-                        <div className={classes.settings}>
-                            <br/>
-                            <div>Settings</div>
-                            <div className="inputs">
-                                <div className="min">
-                                    <div className="up" onClick={(event) => this.setState({min: Math.min(this.state.min + 1, this.state.max - 1)})}/>
-                                    <div className="value">{this.state.min}</div>
-                                    <div className="down" onClick={(event) => this.setState({min: Math.max(this.state.min - 1, 1)})}/>
-                                </div>
-                                <div className="max">
-                                    <div className="up" onClick={(event) => this.setState({max: Math.min(this.state.max + 1, 60)})}/>
-                                    <div className="value">{this.state.max}</div>
-                                    <div className="down" onClick={(event) => this.setState({max: Math.max(this.state.max - 1, this.state.min + 1)})}/>
-                                </div>
-                            </div>
+                        <div>
+                            A gentle reminder to focus occurring randomly between every
                         </div>
+                        <div className={classes.inputs}>
+                            <div className="min">
+                                <div className="up" onClick={(event) => this.setState({min: Math.min(this.state.min + 1, this.state.max - 1)})}/>
+                                <div className="value">{this.state.min}</div>
+                                <div className="down" onClick={(event) => this.setState({min: Math.max(this.state.min - 1, 1)})}/>
+                            </div>
+                            and
+                            <div className="max">
+                                <div className="up" onClick={(event) => this.setState({max: Math.min(this.state.max + 1, 60)})}/>
+                                <div className="value">{this.state.max}</div>
+                                <div className="down" onClick={(event) => this.setState({max: Math.max(this.state.max - 1, this.state.min + 1)})}/>
+                            </div>
+                            minutes.
+                        </div>
+                        <div>click anywhere to pause / unpause</div>
                     </React.Fragment>
                     :
                     <Timer className={classes.timer} min={this.state.min} max={this.state.max}/>

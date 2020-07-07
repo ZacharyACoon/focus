@@ -63,29 +63,3 @@ class Timer extends React.Component {
 
 
 export default Timer;
-
-// export default function Timer (props) {
-//     let [timer, setTimer] = useState({now: Date.now(), end: future(props.min, props.max), fraction: false})
-//     const tick = () => {
-//         let { now, end, fraction} = timer;
-//         now = Date.now();
-//         if ( ! props.paused && now > end ) {
-//             if ( end ) {
-//                 alarmSound.start();
-//                 let playbackRate = random(75, 125) / 100;
-//                 alarmSound.playbackRate = playbackRate;
-//                 pauseSound.playbackRate = playbackRate;
-//             }
-//             end = now + randomMinutes(props.min, props.max);
-//         }
-//         fraction = Math.floor((now + 200) / 500) % 2 === 0;
-//         setTimer({now: now, end: end, fraction: fraction})
-//     }
-//     useInterval(tick, 100);
-//     const { className } = props;
-//     return (
-//         <div className={clsx("timer", className, timer.fraction ? "fraction" : "")}>
-//             {moment.duration(timer.end - timer.now).humanize()}
-//         </div>
-//     );
-// }
